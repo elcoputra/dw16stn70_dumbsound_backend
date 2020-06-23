@@ -49,6 +49,7 @@ const typesRoute = require('../controllers/type/types');
 
 // ## ARTIST ## //
 const artistsRoute = require('../controllers/artist/artists');
+const addArtistRoute = require('../controllers/artist/addArtist');
 
 // ## SONG ## //
 const songsRoute = require('../controllers/song/songs');
@@ -106,6 +107,7 @@ router.get('/types', typesRoute.reads); //authenticatingUser
 
 // ### ARTIST ### //
 router.get('/artists', artistsRoute.reads);
+router.post('/artist', addArtistRoute.create);
 
 // ### SONG ### //
 router.get('/songs', songsRoute.reads);
