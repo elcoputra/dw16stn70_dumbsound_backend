@@ -53,28 +53,7 @@ const addArtistRoute = require('../controllers/artist/addArtist');
 
 // ## SONG ## //
 const songsRoute = require('../controllers/song/songs');
-
-// // ## CATEGORY ## //
-// const categoiresRoute = require('../controllers/category/categories');
-// const addCategoryRoute = require('../controllers/category/add');
-// const updateCategoryRoute = require('../controllers/category/update');
-// const deleteCategoryRoute = require('../controllers/category/delete');
-
-// // ## MOVIE ## //
-// const moviesRouter = require('../controllers/movie/movies');
-// const movieRouter = require('../controllers/movie/movie');
-// const movieSearchRouter = require('../controllers/movie/searchMovies');
-// const moviesByCategory = require('../controllers/movie/movesByCategory');
-// const addMovieRouter = require('../controllers/movie/add');
-// const updateMovieRouter = require('../controllers/movie/update');
-// const deleteMovieRouter = require('../controllers/movie/delete');
-
-// // ## EPISODE ## //
-// const episodeRouter = require('../controllers/episode/episode');
-// const episodesRouter = require('../controllers/episode/episodes');
-// const addEpisodeRouter = require('../controllers/episode/add');
-// const updateEpisodeRouter = require('../controllers/episode/update');
-// const deleteEpisodeRouter = require('../controllers/episode/delete');
+const addSongRoute = require('../controllers/song/addSong');
 
 // ################################## Routing ################################## //
 
@@ -111,28 +90,6 @@ router.post('/artist', addArtistRoute.create);
 
 // ### SONG ### //
 router.get('/songs', songsRoute.reads);
-
-// // ### Category ## //
-// router.get('/categories', authenticatingUser, categoiresRoute.reads); //authenticatingUser
-// router.post('/category', authenticatingAdmin, validatingAddCategory, addCategoryRoute.create); //authenticatingAdmin
-// router.patch('/category/:id', authenticatingAdmin, validatingUpdateCategory, updateCategoryRoute.update); //authenticatingAdmin
-// router.delete('/category/:id', authenticatingAdmin, validatingDeleteCategory, deleteCategoryRoute.deletecategory); //authenticatingAdmin
-
-// // ### Movie ### //
-// router.get('/movies', moviesRouter.reads);
-// router.get('/movies/search/:target', authenticatingUser, movieSearchRouter.search); //authenticatingUser
-// router.get('/category/:categoryId/movies', validatingViewEpisodesByCategory, moviesByCategory.reads);
-// router.get('/movie/:id', authenticatingUser, movieRouter.reads); //authenticatingUser
-// router.post('/movie', authenticatingAdmin, addMovieRouter.create); //authenticatingAdmin validatingAddMovie
-// router.patch('/movie/:id', authenticatingAdmin, validatingUpdateMovie, updateMovieRouter.update); //authenticatingAdmin
-// router.delete('/movie/:id', authenticatingAdmin, validatingDeleteMovie, deleteMovieRouter.delete); //authenticatingAdmin
-
-// // ### EPISODE ### //
-// router.get('/movie/:movieId/episodes', authenticatingUser, validatingViewEpisodes, episodesRouter.reads); //authenticatingUser
-// router.get('/movie/:movieId/episode/:id', authenticatingUser, validatingViewEpisode, episodeRouter.reads); //authenticatingUser
-// router.post('/episode', authenticatingAdmin, validatingAddEpisodes, addEpisodeRouter.create); //authenticatingAdmin
-// router.post('/episodes', authenticatingAdmin, addEpisodeRouter.bluk); //authenticatingAdmin
-// router.patch('/episode/:id', authenticatingAdmin, validatingUpdateEpisode, updateEpisodeRouter.update); //authenticatingAdmin
-// router.delete('/episode/:id', authenticatingAdmin, validatingDeleteEpisode, deleteEpisodeRouter.delete); //authenticatingAdmin
+router.post('/song', addSongRoute.create);
 
 module.exports = router;
