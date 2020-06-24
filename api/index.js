@@ -10,18 +10,6 @@ const {
   validatingAddTransaction,
   validatingUpdateTransaction,
   validatingDeleteTransaction,
-  validatingAddCategory,
-  validatingUpdateCategory,
-  validatingDeleteCategory,
-  validatingAddMovie,
-  validatingUpdateMovie,
-  validatingDeleteMovie,
-  validatingAddEpisodes,
-  validatingViewEpisodesByCategory,
-  validatingUpdateEpisode,
-  validatingDeleteEpisode,
-  validatingViewEpisode,
-  validatingViewEpisodes,
 } = require('./middlwares/validator');
 const { encryptPass, decryptPass } = require('./middlwares/encryptor');
 const { getToken } = require('./middlwares/token');
@@ -29,7 +17,7 @@ const { authenticatingUser, authenticatingById, authenticatingAdmin, decode } = 
 
 // ## USER ## //
 
-const seasoCheckRoute = require('../controllers/user/seasonCheck');
+const seasonCheckRoute = require('../controllers/user/seasonCheck');
 const usersRoute = require('../controllers/user/users');
 const userRoute = require('../controllers/user/user');
 const deleteUserRoute = require('../controllers/user/delete');
@@ -64,7 +52,7 @@ router.get('/', (req, res) => {
 });
 
 // ### USER ### //
-router.get('/auth', decode, seasoCheckRoute.reads);
+router.get('/auth', decode, seasonCheckRoute.reads);
 router.get('/users', authenticatingAdmin, usersRoute.reads); // authenticatingAdmin
 router.get('/user/:id', authenticatingById, userRoute.reads); //authenticatingById
 router.post('/login', validatingLogin, loginRoute.checkingDataUser, decryptPass, getToken);
@@ -87,11 +75,11 @@ router.get('/types', typesRoute.reads); //authenticatingUser
 
 // ### ARTIST ### //
 router.get('/artists', artistsRoute.reads);
-router.post('/artist', addArtistRoute.create);
+router.post('/artist', authenticatingAdmin, addArtistRoute.create);
 
 // ### SONG ### //
 router.get('/songs', songsRoute.reads);
 router.get('/song/:id', songRoute.read);
-router.post('/song', addSongRoute.create);
+router.post('/song', authenticatingAdmin, addSongRoute.create);
 
 module.exports = router;

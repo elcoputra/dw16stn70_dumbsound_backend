@@ -68,9 +68,7 @@ exports.decode = (req, res, next) => {
   token = header.replace('Bearer ', '');
   // if (!(header = req.header('Authorization')) || !(token = header.replace('Bearer ', ''))) return res.send({ isLogin: false });
   try {
-    console.log('start');
     const verified = jwt.verify(token, process.env.TOKEN_KEY);
-    console.log(verified.id);
     req.decode = verified;
     return next();
   } catch (error) {

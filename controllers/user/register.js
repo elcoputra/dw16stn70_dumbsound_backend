@@ -7,8 +7,8 @@ exports.create = async (req, res, next) => {
     await user.create({
       fullName: fullName,
       email: email,
+      isAdmin: isAdmin,
       password: password,
-      isAdmin: false,
       gender: gender,
       phone: phone,
       address: address,
