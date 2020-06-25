@@ -10,6 +10,8 @@ const {
   validatingAddTransaction,
   validatingUpdateTransaction,
   validatingDeleteTransaction,
+  validatingAddArtist,
+  validatingAddSong,
 } = require('./middlwares/validator');
 const { encryptPass, decryptPass } = require('./middlwares/encryptor');
 const { getToken } = require('./middlwares/token');
@@ -75,11 +77,11 @@ router.get('/types', typesRoute.reads); //authenticatingUser
 
 // ### ARTIST ### //
 router.get('/artists', artistsRoute.reads);
-router.post('/artist', authenticatingAdmin, addArtistRoute.create);
+router.post('/artist', authenticatingAdmin, validatingAddArtist, addArtistRoute.create);
 
 // ### SONG ### //
 router.get('/songs', songsRoute.reads);
 router.get('/song/:id', songRoute.read);
-router.post('/song', authenticatingAdmin, addSongRoute.create);
+router.post('/song', authenticatingAdmin, validatingAddSong, addSongRoute.create);
 
 module.exports = router;

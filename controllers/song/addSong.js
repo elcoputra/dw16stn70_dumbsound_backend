@@ -28,7 +28,7 @@ exports.create = async (req, res, next) => {
       },
     });
     return res.send({
-      message: 'Movie successfully added',
+      message: 'Song successfully added',
       data: detail,
     });
   } catch (error) {

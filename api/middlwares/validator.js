@@ -1,5 +1,5 @@
 const Joi = require('@hapi/joi');
-const { user, transaction, category, movie, episode } = require('../../models');
+const { user, transaction, artist, song } = require('../../models');
 
 // ### USER ### //
 exports.validatingRegister = async (req, res, next) => {
@@ -171,6 +171,44 @@ exports.validatingDeleteTransaction = async (req, res, next) => {
       return res.status(400).send({
         message: 'id transaction not found',
       });
+
+    return next();
+  } catch (error) {
+    return console.log(error);
+  }
+};
+
+// ADD ARTIST
+
+exports.validatingAddArtist = async (req, res, next) => {
+  try {
+    const schema = Joi.object({
+      typeId: Joi.number().required(),
+      name: Joi.string().required(),
+      old: Joi.number().required(),
+      startAcareer: Joi.number().required(),
+    });
+    const { error } = await schema.validate(req.body);
+    if (error) return res.status(400).json({ error: error.details[0].message });
+
+    return next();
+  } catch (error) {
+    return console.log(error);
+  }
+};
+
+// ADD SONG
+exports.validatingAddSong = async (req, res, next) => {
+  try {
+    const schema = Joi.object({
+      artistId: Joi.number().required(),
+      title: Joi.string().required(),
+      year: Joi.number().required(),
+      musicLink: Joi.string().max(255).required(),
+      thumbnailLink: Joi.string().max(255).required(),
+    });
+    const { error } = await schema.validate(req.body);
+    if (error) return res.status(400).json({ error: error.details[0].message });
 
     return next();
   } catch (error) {
