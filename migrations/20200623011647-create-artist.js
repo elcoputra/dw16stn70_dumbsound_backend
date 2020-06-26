@@ -27,6 +27,15 @@ module.exports = {
       startAcareer: {
         type: Sequelize.INTEGER,
       },
+      bio: {
+        type: Sequelize.STRING(1000),
+      },
+      pic: {
+        type: Sequelize.STRING(500),
+      },
+      cover: {
+        type: Sequelize.STRING(500),
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

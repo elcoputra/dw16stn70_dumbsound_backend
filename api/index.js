@@ -40,6 +40,7 @@ const typesRoute = require('../controllers/type/types');
 // ## ARTIST ## //
 const artistsRoute = require('../controllers/artist/artists');
 const addArtistRoute = require('../controllers/artist/addArtist');
+const artisDetailBySongRoute = require('../controllers/artist/artistDetailFromSong');
 
 // ## SONG ## //
 const songsRoute = require('../controllers/song/songs');
@@ -77,6 +78,7 @@ router.get('/types', typesRoute.reads); //authenticatingUser
 
 // ### ARTIST ### //
 router.get('/artists', artistsRoute.reads);
+router.get('/song/artist/:name', artisDetailBySongRoute.read);
 router.post('/artist', authenticatingAdmin, validatingAddArtist, addArtistRoute.create);
 
 // ### SONG ### //

@@ -184,6 +184,9 @@ exports.validatingAddArtist = async (req, res, next) => {
       name: Joi.string().required(),
       old: Joi.number().required(),
       startAcareer: Joi.number().required(),
+      bio: Joi.string().max(1000).required(),
+      pic: Joi.string().max(500).required(),
+      cover: Joi.string().max(500).required(),
     });
     const { error } = await schema.validate(req.body);
     if (error) return res.status(400).json({ error: error.details[0].message });
