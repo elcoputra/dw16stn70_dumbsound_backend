@@ -46,6 +46,7 @@ const artisDetailBySongRoute = require('../controllers/artist/artistDetailFromSo
 const songsRoute = require('../controllers/song/songs');
 const addSongRoute = require('../controllers/song/addSong');
 const songRoute = require('../controllers/song/song');
+const songsByArtistRoute = require('../controllers/song/songsByArtist');
 
 // ################################## Routing ################################## //
 
@@ -84,6 +85,7 @@ router.post('/artist', authenticatingAdmin, validatingAddArtist, addArtistRoute.
 // ### SONG ### //
 router.get('/songs', songsRoute.reads);
 router.get('/song/:id', songRoute.read);
+router.get('/artist/:id/songs', songsByArtistRoute.reads);
 router.post('/song', authenticatingAdmin, validatingAddSong, addSongRoute.create);
 
 module.exports = router;
