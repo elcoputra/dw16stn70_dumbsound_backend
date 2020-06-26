@@ -70,8 +70,6 @@ exports.validatingDeleteUser = async (req, res, next) => {
 exports.validatingAddTransaction = async (req, res, next) => {
   try {
     const schema = Joi.object({
-      // startDate: Joi.string().allow(),
-      // dueDate: Joi.string().min(8).allow(),
       userId: Joi.number().required(),
       attachment: Joi.string().required(),
       status: Joi.string().valid('Approved', 'Pending', 'Denied').allow(),
@@ -81,15 +79,14 @@ exports.validatingAddTransaction = async (req, res, next) => {
     if (error) return res.status(400).json({ error: error.details[0].message });
 
     const { userId } = req.body;
-    // validator untuk tidak memasukan transaksi lagi, tapi karena transaksi boleh di masukan berkali2
-    // feature ini di hapus
+    // validator untuk tidak memasukan transaksi lagi
     const UserId = await transaction.findOne({
       where: { userId },
     });
     if (UserId)
       return res.status(400).send({
         status: 'failed',
-        message: 'userId already has a data transaction, it must be edited rather than adding a new one',
+        error: 'You have already sent the upgrade data, check again later',
       });
 
     const idUser = await user.findOne({
