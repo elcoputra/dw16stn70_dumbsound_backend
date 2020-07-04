@@ -47,6 +47,11 @@ const songsRoute = require('../controllers/song/songs');
 const addSongRoute = require('../controllers/song/addSong');
 const songRoute = require('../controllers/song/song');
 const songsByArtistRoute = require('../controllers/song/songsByArtist');
+const { updateSong } = require('../controllers/song/updateSong');
+const { deleteSong } = require('../controllers/song/deleteSong');
+
+// ## CUSTOM ## //
+const { search } = require('../controllers/custom/search');
 
 // ################################## Routing ################################## //
 
@@ -73,9 +78,6 @@ router.delete('/transaction/:id', authenticatingAdmin, validatingDeleteTransacti
 
 // ### TYPE ### //
 router.get('/types', typesRoute.reads); //authenticatingUser
-// router.post('/type', validatingAddCategory, addCategoryRoute.create); //authenticatingAdmin
-// router.patch('/type/:id', validatingUpdateCategory, updateCategoryRoute.update); //authenticatingAdmin
-// router.delete('/type/:id', validatingDeleteCategory, deleteCategoryRoute.deletecategory); //authenticatingAdmin
 
 // ### ARTIST ### //
 router.get('/artists', artistsRoute.reads);
@@ -86,6 +88,11 @@ router.post('/artist', authenticatingAdmin, validatingAddArtist, addArtistRoute.
 router.get('/songs', songsRoute.reads);
 router.get('/song/:id', songRoute.read);
 router.get('/artist/:id/songs', songsByArtistRoute.reads);
+router.patch('/song/:id', updateSong);
+router.delete('/song/:id', deleteSong);
 router.post('/song', authenticatingAdmin, validatingAddSong, addSongRoute.create);
+
+// ### SEARCHS ### //
+router.post('/song/searches/', search);
 
 module.exports = router;
