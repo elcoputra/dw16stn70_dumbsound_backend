@@ -7,6 +7,7 @@ exports.reads = async (req, res) => {
       attributes: {
         exclude: ['createdAt', 'updatedAt', 'password'],
       },
+      order: [['id', 'DESC']],
     });
     return res.send({ data: userdata });
   } catch (error) {

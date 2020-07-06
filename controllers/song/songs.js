@@ -21,6 +21,7 @@ exports.reads = async (req, res) => {
       attributes: {
         exclude: ['createdAt', 'updatedAt'],
       },
+      order: [['id', 'DESC']],
     });
     return res.send({ data: songs });
   } catch (error) {
