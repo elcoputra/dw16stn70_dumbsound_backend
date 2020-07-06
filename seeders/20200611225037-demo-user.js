@@ -12,12 +12,13 @@ module.exports = {
           gender: 'male',
           phone: '083896831233',
           address: 'Jln. Marvel Universe, RT.21 RW.69',
-          subscribe: 'true',
+          isAdmin: true,
+          subscribe: true,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
       ],
-      {}
+      {},
     );
   },
 
