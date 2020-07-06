@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "DEBUG=dw16stn7o-dumbflix-api:* node ./bin/www",
     "test": "DEBUG=dw16stn7o-dumbflix-api:* nodemon ./bin/www"
   },
   "dependencies": {
