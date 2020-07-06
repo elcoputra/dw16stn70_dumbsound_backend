@@ -10,7 +10,8 @@ exports.search = async (req, res) => {
       // Sequelize Operators API on Model Querying - Basics
       // [Op.like]: '%hat',  LIKE '%hat'
       // search containt
-      where: { title: { [Op.iLike]: '%' + req.body.search + '%' } },
+      // where: { title: { [Op.like]: '%' + req.body.search + '%' } }, // use this if u use mysql
+      where: { title: { [Op.iLike]: '%' + req.body.search + '%' } }, // use this if u use postgres
       include: {
         model: artist,
         attributes: {

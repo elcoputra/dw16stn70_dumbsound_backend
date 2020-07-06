@@ -40,7 +40,6 @@ Create React App, Express.js, Material UI, Moment.Js, Hapi Joi, React Jingke Mus
 - And start project with `$ npm start` or `$ npm test` on project folder.
 
 ### Setup project and database for local machine
-
 on your_project/config/config.json edit your ***development*** data
 
     "username":  "your_database_usernama",
@@ -57,6 +56,8 @@ on your_project/config/config.json edit your ***development*** data
  - now generate data default for testing `$ npx sequelize-cli db:seed:all`.
  - now **start** your project again, now the dumbsound project has basic
    data in datadatabse.
+
+**if the search function isn't working properly, look at "your_project / custom / search.js" on lines 13-14**
 
 ### Setup project and database for Heroku
 #### Project
@@ -79,5 +80,7 @@ If the dumbsound project has been successfully deployed, now let's make the data
 - now run heroku bash `$ heroku run bash `
 - migrating `$ npx sequelize-cli db:migrate`
 - running Seeds `$ npx sequelize-cli db:seed:all`
+
+**if the search function isn't working properly, look at "your_project/custom/search.js" on lines 13-14**
 
 Now your project ready to use, yeayyyy...... 😆
