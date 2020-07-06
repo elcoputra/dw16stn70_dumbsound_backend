@@ -10,7 +10,7 @@ module.exports = {
   test: {
     username: process.env.USER_DATABASE,
     password: process.env.PASSWORD_DATABASE,
-    database: process.env.DATABASE_NAME,
+    database: 'dumbsound-test',
     host: process.env.DATABASE_HOST,
     dialect: 'postgres',
     operatorsAliases: false,
