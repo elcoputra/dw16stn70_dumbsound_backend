@@ -1,6 +1,5 @@
 module.exports = {
   development: {
-    use_env_variable: process.env.DATABASE_URL
     username: 'postgres',
     password: 1234,
     database: 'dumbsound-dev',
