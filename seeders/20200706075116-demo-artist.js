@@ -6,8 +6,7 @@ module.exports = {
       'artists',
       [
         {
-          id: 5,
-          typeId: 5,
+          typeId: 2,
           name: 'Blackpink',
           old: 4,
           startAcareer: 2016,
@@ -19,8 +18,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          id: 6,
-          typeId: 5,
+          typeId: 2,
           name: 'Dewa19',
           old: 25,
           startAcareer: 1986,
@@ -33,8 +31,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          id: 7,
-          typeId: 5,
+          typeId: 2,
           name: 'Nirvana',
           old: 33,
           startAcareer: 1987,
@@ -47,8 +44,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          id: 11,
-          typeId: 4,
+          typeId: 1,
           name: 'Didi Kempot',
           old: 54,
           startAcareer: 2000,
@@ -60,8 +56,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          id: 12,
-          typeId: 4,
+          typeId: 1,
           name: 'Sayuri',
           old: 24,
           startAcareer: 2010,
@@ -74,8 +69,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          id: 14,
-          typeId: 5,
+          typeId: 2,
           name: 'One Oke Rock',
           old: 15,
           startAcareer: 2005,
@@ -87,8 +81,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          id: 28,
-          typeId: 5,
+          typeId: 2,
           name: 'KANA-BOON',
           old: 12,
           startAcareer: 2008,
