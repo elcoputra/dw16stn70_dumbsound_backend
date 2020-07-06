@@ -6,13 +6,11 @@ module.exports = {
       'types',
       [
         {
-          id: 4,
           name: 'Solo',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          id: 5,
           name: 'Group',
           createdAt: new Date(),
           updatedAt: new Date(),
