@@ -1,5 +1,6 @@
 module.exports = {
   development: {
+    use_env_variable: process.env.DATABASE_URL
     username: 'postgres',
     password: 1234,
     database: 'dumbsound-dev',
@@ -8,18 +9,20 @@ module.exports = {
     operatorsAliases: false,
   },
   test: {
-    username: process.env.USER_DATABASE,
-    password: process.env.PASSWORD_DATABASE,
+    use_env_variable: process.env.DATABASE_URL
+    username: 'postgre',
+    password: 1234,
     database: 'dumbsound-test',
-    host: process.env.DATABASE_HOST,
+    host: '127.0.0.1',
     dialect: 'postgres',
     operatorsAliases: false,
   },
   production: {
-    username: process.env.USER_DATABASE,
-    password: process.env.PASSWORD_DATABASE,
+    use_env_variable: process.env.DATABASE_URL
+    username: 'postgre',
+    password: 1234,
     database: 'dumbsound_production',
-    host: process.env.DATABASE_HOST,
+    host: '127.0.0.1',
     dialect: 'postgres',
     operatorsAliases: false,
   },
