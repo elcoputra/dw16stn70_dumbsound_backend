@@ -69,7 +69,7 @@ router.post('/register', validatingRegister, encryptPass, rigisterRoute.create, 
 router.delete('/user/:id', authenticatingAdmin, validatingDeleteUser, deleteUserRoute.deleteUser); //authenticatingAdmin
 
 // ### TRANSACTION ### //
-router.get('/transactions', authenticatingAdmin, transactionsRoute.reads); //authenticatingAdmin
+router.post('/transactions', authenticatingAdmin, transactionsRoute.reads); //authenticatingAdmin
 router.get('/transaction/:id', authenticatingAdmin, transactionRoute.reads); //authenticatingAdmin
 router.get('/user/:id/transactions', authenticatingById, transactionsByUserRoute.reads); //authenticatingById
 router.post('/transaction', validatingAddTransaction, addTransactionRoute.create); //authenticatingAdmin

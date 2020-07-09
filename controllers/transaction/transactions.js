@@ -5,20 +5,40 @@ const { user } = require('../../models');
 exports.reads = async (req, res) => {
   try {
     // ini di bawah metode ngambil data buat yang sudah di assosiation
-    const userdata = await transaction.findAll({
-      include: [
-        {
-          model: user,
-          attributes: {
-            exclude: ['createdAt', 'updatedAt', 'password'],
+    let userdata;
+    if (req.body.target === 'all') {
+      userdata = await transaction.findAll({
+        include: [
+          {
+            model: user,
+            attributes: {
+              exclude: ['createdAt', 'updatedAt', 'password'],
+            },
           },
+        ],
+        attributes: {
+          exclude: ['createdAt', 'updatedAt'],
         },
-      ],
-      attributes: {
-        exclude: ['createdAt', 'updatedAt'],
-      },
-      order: [['id', 'DESC']],
-    });
+        order: [['id', 'DESC']],
+      });
+    } else {
+      userdata = await transaction.findAll({
+        where: { status: req.body.target },
+        include: [
+          {
+            model: user,
+            attributes: {
+              exclude: ['createdAt', 'updatedAt', 'password'],
+            },
+          },
+        ],
+        attributes: {
+          exclude: ['createdAt', 'updatedAt'],
+        },
+        order: [['id', 'DESC']],
+      });
+    }
+
     return res.send({ data: userdata });
   } catch (error) {
     return res.send({ error });
